@@ -38,5 +38,8 @@ do
   click_by_attribute 'your.app.package.debug:id/login_button' $device
   
   sleep 5
-  adb -s $device shell monkey -p your.app.package.debug -v --pct-syskeys 0 $events
+  adb -s $device shell monkey --pct-syskeys 0 -p your.app.package.debug -v $events 
+
+  # uncomment for video support, monkey needs to be non-blocking so add & to end of monkey invocation
+  # adb -s $device shell screenrecord /sdcard/stresstest.mp4 --verbose
 done
